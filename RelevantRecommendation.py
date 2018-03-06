@@ -72,6 +72,7 @@ class DetailInfoOnline(object):
             result = []
             while "Items" in response and 0 < len(response["Items"]):
                 if 0 != len(response["Items"]):
+                    print(response["Items"])
                     result += response["Items"]
                 if "LastEvaluatedKey" not in response:
                     break
@@ -110,7 +111,7 @@ class DetailInfoOnline(object):
             
 if __name__ =="__main__":
     print("start...")
-    data_obj = DetailInfoOnline('dynamodb', 'ap-northeast-2', "https://dynamodb.ap-northeast-2.amazonaws.com", 'RelevantRecommendation')
+    data_obj = DetailInfoOnline('dynamodb', 'ap-northeast-2', "https://dynamodb.ap-northeast-2.amazonaws.com", 'MXNewsDetailInfoDev')
     res = data_obj.scan_all()
     print(len(res))
     print(res[0])
