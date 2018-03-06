@@ -76,6 +76,7 @@ class DetailInfoOnline(object):
                 if "LastEvaluatedKey" not in response:
                     break
                 lek = response["LastEvaluatedKey"]
+                print(lek)
                 response = self._table.scan(
                         ProjectionExpression=pe,
                         ExclusiveStartKey=lek
@@ -109,7 +110,7 @@ class DetailInfoOnline(object):
             
 if __name__ =="__main__":
     print("start...")
-    data_obj = DetailInfoOnline('dynamodb', 'ap-south-1', "https://dynamodb.ap-south-1.amazonaws.com", 'DetailInfoOnline')
+    data_obj = DetailInfoOnline('dynamodb', 'ap-northeast-2', "https://dynamodb.ap-northeast-2.amazonaws.com", 'RelevantRecommendation')
     res = data_obj.scan_all()
     print(len(res))
     print(res[0])
