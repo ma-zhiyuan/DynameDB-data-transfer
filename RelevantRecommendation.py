@@ -65,7 +65,7 @@ class DetailInfoOnline(object):
         
     def scan_all(self):
         try:
-            pe = "id, info"
+            pe = "userId, anonymId"
             response = self._table.scan(
                     ProjectionExpression=pe,
                     )
@@ -111,8 +111,7 @@ class DetailInfoOnline(object):
             
 if __name__ =="__main__":
     print("start...")
-    data_obj = DetailInfoOnline('dynamodb', 'ap-northeast-2', "https://dynamodb.ap-northeast-2.amazonaws.com", 'MXNewsDetailInfoDev')
+    data_obj = DetailInfoOnline('dynamodb', 'ap-northeast-2', "https://dynamodb.ap-northeast-2.amazonaws.com", 'MXNewsUserDev')
     res = data_obj.scan_all()
-    print(len(res))
     print(res[0])
     print("end...")
